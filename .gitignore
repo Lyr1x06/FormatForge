@@ -1,0 +1,13 @@
+node_modules
+dist
+.vite
+src-tauri/target
+src-tauri/gen
+*.local
+.DS_Store
+.oxlintcache
+.shot*.png
+
+# 测试样本与转换产物，都由脚本生成
+fixtures
+out

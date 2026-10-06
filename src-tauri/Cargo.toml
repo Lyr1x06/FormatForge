@@ -1,0 +1,51 @@
+[package]
+name = "format-forge"
+version = "0.1.0"
+description = "批量格式转换器"
+edition = "2021"
+rust-version = "1.77"
+
+[lib]
+name = "format_forge_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-store = "2"
+tauri-plugin-os = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+thiserror = "2"
+infer = "0.22"
+walkdir = "2"
+num_cpus = "1"
+image = { version = "0.25", default-features = false, features = [
+    "png", "jpeg", "webp", "gif", "bmp", "tiff", "ico",
+] }
+
+# 表格：calamine 读 xlsx/xls/ods，rust_xlsxwriter 写 xlsx，csv 处理定界文本
+calamine = "0.36"
+csv = "1.4"
+rust_xlsxwriter = "0.92"
+encoding_rs = "0.8"
+
+# DOCX 是 zip 包里的 XML；roxmltree 拿来当 DOM 走，比流式好写
+zip = "4.2"
+roxmltree = "0.21"
+
+# PDF 合并 / 拆分 / 旋转 / 删页 / 取文本 / 图片转 PDF
+lopdf = "0.45"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
+panic = "abort"

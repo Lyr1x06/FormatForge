@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/@tauri-apps/cli/config.schema.json",
+  "identifier": "default",
+  "description": "Format Forge 主窗口权限",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging",
+    "dialog:default",
+    "opener:default",
+    "store:default",
+    "os:default"
+  ]
+}
